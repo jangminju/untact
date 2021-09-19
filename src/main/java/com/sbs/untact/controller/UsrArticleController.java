@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sbs.untact.DTO.Article;
-import com.sbs.untact.DTO.ResultData;
+import com.sbs.untact.dto.Article;
+import com.sbs.untact.dto.ResultData;
 import com.sbs.untact.service.ArticleService;
 import com.sbs.untact.util.Util;
 
@@ -63,7 +63,7 @@ public class UsrArticleController {
 			return new ResultData("F-1", "body를 입력해주세요.");
 		}
 		
-		return articleService.add(title, body);
+		return articleService.addAticle(title, body);
 	}
 	
 	@RequestMapping("/usr/article/doDelete")
@@ -104,7 +104,7 @@ public class UsrArticleController {
 			return new ResultData("F-1", "해당 게시물은 존재하지않습니다.");
 		}
 		
-		return articleService.modify(id, title, body);
+		return articleService.modifyArticle(id, title, body);
 
 	}
 }

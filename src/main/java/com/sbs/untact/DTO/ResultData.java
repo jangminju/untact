@@ -1,4 +1,4 @@
-package com.sbs.untact.DTO;
+package com.sbs.untact.dto;
 
 import java.util.Map;
 
