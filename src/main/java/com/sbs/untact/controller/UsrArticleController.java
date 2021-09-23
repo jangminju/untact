@@ -55,15 +55,15 @@ public class UsrArticleController {
 	
 	@RequestMapping("/usr/article/doAdd")
 	@ResponseBody
-	public ResultData doAdd(String title, String body) {
-		if (title == null ) {
+	public ResultData doAdd(@RequestParam Map<String, Object> param) {
+		if (param.get("title") == null ) {
 			return new ResultData("F-1", "title을 입력해주세요.");
 		}
-		if (body == null ) {
+		if (param.get("title") == null ) {
 			return new ResultData("F-1", "body를 입력해주세요.");
 		}
 		
-		return articleService.addAticle(title, body);
+		return articleService.addAticle(param);
 	}
 	
 	@RequestMapping("/usr/article/doDelete")

@@ -2,6 +2,7 @@ package com.sbs.untact.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,10 +23,11 @@ public class ArticleService {
 
 	
 
-	public ResultData addAticle(String title, String body) {
-		articleDao.addArticle(title, body);
+	public ResultData addAticle(Map<String, Object> param) {
+		param.get("id");
+		articleDao.addArticle(param);
 		
-		int id = 1; //임시
+		int id = Util.getAsInt(param.get("id"), 0);
 		
 		return new ResultData("S-1", "성공하였습니다.", "id", id);
 	}
